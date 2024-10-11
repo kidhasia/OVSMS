@@ -1,105 +1,104 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Dashboard</title>
-    <link rel="stylesheet" href="CSS/SellerDashboard.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f0f2f5;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #1c2b4b;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dashboard {
+            background-color: #1c2b4b;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+            color: #1c2b4b;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #f0f2f5;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        tr:hover {
+            background-color: #f5f7fa;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007aff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard-container">
+    <div class="container">
         <h2>Seller Dashboard</h2>
-        
-        <!-- Profile Section -->
-        <section id="profile">
-            <h3>Seller Profile</h3>
-            <p>Username: <span id="username">JohnDoe</span></p>
-            <p>Email: <span id="email">john@example.com</span></p>
-            <p>Contact Number: <span id="contactNumber">1234567890</span></p>
-            <p>Address: <span id="address">123 Main St, City, Country</span></p>
-            <button onclick="showEditForm()">Edit Profile</button>
-        </section>
-
-        <!-- Edit Profile Form (initially hidden) -->
-        <section id="editProfileForm" style="display:none;">
-            <h3>Edit Profile</h3>
-            <form id="updateProfileForm">
-                <div class="input-container">
-                    <label for="editUsername">Username</label>
-                    <input type="text" id="editUsername" name="username" required>
-                </div>
-                <div class="input-container">
-                    <label for="editEmail">Email</label>
-                    <input type="email" id="editEmail" name="email" required>
-                </div>
-                <div class="input-container">
-                    <label for="editContactNumber">Contact Number</label>
-                    <input type="text" id="editContactNumber" name="contactNumber" required>
-                </div>
-                <div class="input-container">
-                    <label for="editAddress">Address</label>
-                    <input type="text" id="editAddress" name="address" required>
-                </div>
-                <button type="submit">Update Profile</button>
-            </form>
-        </section>
-
-        <!-- Product Management Section -->
-        <section id="productManagement">
-            <h3>Product Management</h3>
-            <button onclick="showAddProductForm()">Add New Product</button>
-            
-            <!-- Add Product Form (initially hidden) -->
-            <form id="addProductForm" style="display:none;">
-                <div class="input-container">
-                    <label for="productName">Product Name</label>
-                    <input type="text" id="productName" name="productName" required>
-                </div>
-                <div class="input-container">
-                    <label for="productDescription">Description</label>
-                    <textarea id="productDescription" name="productDescription" required></textarea>
-                </div>
-                <div class="input-container">
-                    <label for="productPrice">Price</label>
-                    <input type="number" id="productPrice" name="productPrice" step="0.01" required>
-                </div>
-                <div class="input-container">
-                    <label for="productQuantity">Quantity</label>
-                    <input type="number" id="productQuantity" name="productQuantity" required>
-                </div>
-                <button type="submit">Add Product</button>
-            </form>
-
-            <!-- Product List -->
-            <table id="productList">
+        <div class="dashboard">
+            <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>E-mail</th>
+                        <th>Contact Number</th>
+                        <th>Address</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Example product row -->
-                    <tr>
-                        <td>Sample Product</td>
-                        <td>This is a sample product description</td>
-                        <td>$19.99</td>
-                        <td>50</td>
-                        <td>
-                            <button onclick="editProduct(1)">Edit</button>
-                            <button onclick="deleteProduct(1)">Delete</button>
-                        </td>
-                    </tr>
+                    <c:forEach var="sellerR" items="${SellReg}">
+                        <tr>
+                            <td>${sellerR.user_id}</td>
+                            <td>${sellerR.user_name}</td>
+                            <td>${sellerR.user_email}</td>
+                            <td>${sellerR.user_conNum}</td>
+                            <td>${sellerR.user_address}</td>
+                            <td>
+                                <a href="editSeller?id=${sellerR.user_id}" class="btn">Edit</a>
+                                <a href="deleteSeller?id=${sellerR.user_id}" class="btn" onclick="return confirm('Are you sure you want to delete this seller?')">Delete</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
-        </section>
+        </div>
     </div>
-
-    <script src="JS/SellerDashboard.js"></script>
 </body>
 </html>
