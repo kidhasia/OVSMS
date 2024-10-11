@@ -25,6 +25,14 @@
 		<url-pattern>/SellerUpdateServlet</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<servlet-name>UpdateServlet</servlet-name>
+		<servlet-class>OVSPMS.UpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateServlet</servlet-name>
+		<url-pattern>/UpdateServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 </element>
