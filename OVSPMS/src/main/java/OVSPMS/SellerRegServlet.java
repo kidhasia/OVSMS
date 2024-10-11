@@ -28,7 +28,7 @@ public class SellerRegServlet extends HttpServlet {
         
         if (isTrue == true) {
             request.setAttribute("registrationStatus", "success");
-            dispatcher = request.getRequestDispatcher("sellerLogin.jsp");
+            dispatcher = request.getRequestDispatcher("SellerUpdateServlet");
         } else {
             request.setAttribute("registrationStatus", "failed");
             dispatcher = request.getRequestDispatcher("sellerRegistration.jsp");

@@ -3,6 +3,8 @@ package OVSPMS;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SellerRegController {
 	
@@ -35,6 +37,74 @@ public class SellerRegController {
 		}
 		return isSuccess;
 		
+	}
+	
+	public static List<SellerReg> getById (String Id){
+		
+		int converedID = Integer.parseInt(Id);
+		
+		ArrayList <SellerReg> seller = new ArrayList<>();
+		
+		try {
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			
+			String sqlQ = "SELECT * FROM userregistration WHERE user_id  " + converedID + ";";
+			
+			rs = stmt.executeQuery(sqlQ);
+			
+			while(rs.next()) {
+				int user_id =rs.getInt(1);
+				String user_name = rs.getString(2);
+				String user_email = rs.getString(3);
+				int user_conNum = rs.getInt(4);
+				String user_address = rs.getString(5);
+				String user_password = rs.getString(6);
+				
+				SellerReg seller2 =  new SellerReg(user_id, user_name,user_email,user_conNum,user_address,user_password);
+				
+				seller.add(seller2);
+			}
+			}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return seller;
+		
+		
+	}
+	
+	//Get Data
+	public static List<SellerReg> getAllSellerReg(){
+		
+		ArrayList <SellerReg> sellerR = new ArrayList<>();
+		try {
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			
+			String sqlQ = "SELECT * FROM userregistration ";
+			
+			rs = stmt.executeQuery(sqlQ);
+			
+			while(rs.next()) {
+				int user_id =rs.getInt(1);
+				String user_name = rs.getString(2);
+				String user_email = rs.getString(3);
+				int user_conNum = rs.getInt(4);
+				String user_address = rs.getString(5);
+				String user_password = rs.getString(6);
+				
+				SellerReg seller2 =  new SellerReg(user_id, user_name,user_email,user_conNum,user_address,user_password);
+				
+				sellerR.add(seller2);
+			}
+			}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		return sellerR;
 	}
 
 	public static boolean isSuccess() {

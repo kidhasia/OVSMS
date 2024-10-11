@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<element>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -15,6 +16,15 @@
 		<url-pattern>/SellerRegServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>SellerUpdateServlet</servlet-name>
+		<servlet-class>OVSPMS.SellerUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SellerUpdateServlet</servlet-name>
+		<url-pattern>/SellerUpdateServlet</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>
-
+</element>
