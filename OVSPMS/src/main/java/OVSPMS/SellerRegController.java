@@ -1,6 +1,7 @@
 package OVSPMS;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -39,9 +40,9 @@ public class SellerRegController {
 		
 	}
 	
-	public static List<SellerReg> getById (String Id){
+	public static List<SellerReg> getById (int Id){
 		
-		int converedID = Integer.parseInt(Id);
+		int converedID = Id;
 		
 		ArrayList <SellerReg> seller = new ArrayList<>();
 		
@@ -106,6 +107,53 @@ public class SellerRegController {
 		
 		return sellerR;
 	}
+	
+	//Update function
+	
+	public static boolean updateData(int user_id, String user_name, String user_email, int user_conNum, String user_address, String user_password) {
+	    Connection con = null;
+	    PreparedStatement pst = null;
+	    boolean isSuccess = false;
+
+	    try {
+	        // Get database connection
+	        con = DBConnection.getConnection();
+	        
+	        // Query with placeholders
+	        String sqlQ = "UPDATE userregistration SET user_name = ?, user_email = ?, user_conNum = ?, user_address = ?, user_password = ? WHERE user_id = ?";
+	        
+	        // Use PreparedStatement to prevent SQL injection
+	        pst = con.prepareStatement(sqlQ);
+	        
+	        // Set the parameters in the query
+	        pst.setString(1, user_name);
+	        pst.setString(2, user_email);
+	        pst.setInt(3, user_conNum);
+	        pst.setString(4, user_address);
+	        pst.setString(5, user_password);
+	        pst.setInt(6, user_id);
+	        
+	        // Execute update
+	        int rs = pst.executeUpdate();
+	        
+	        // Check if the update was successful
+	        isSuccess = rs > 0;
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        // Close resources
+	        try {
+	            if (pst != null) pst.close();
+	            if (con != null) con.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return isSuccess;
+	}
+
 
 	public static boolean isSuccess() {
 		return isSuccess;
