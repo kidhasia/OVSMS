@@ -6,6 +6,8 @@ pageEncoding="UTF-8"%>
 <head>
 <meta charset="UTF-8">
 <title>Seller Dash Board</title>
+    <link rel="stylesheet" href="CSS/SellerDashBoard.css">
+
 </head>
 <body>
 <h2>Seller Dash Board</h2>
@@ -28,21 +30,21 @@ pageEncoding="UTF-8"%>
 <td>${sellerR.user_address}</td>
 <td>${sellerR.user_password}</td>
 
-<td>
+<td class="action-column">
     <a href="UpdateSeller.jsp?user_id=${sellerR.user_id}&user_name=${sellerR.user_name}&user_email=${sellerR.user_email}&user_conNum=${sellerR.user_conNum}&user_address=${sellerR.user_address}&user_password=${sellerR.user_password}">
-        <button>Update</button>
+        <button class="update-button">Update</button>
     </a>
 
     <form action="DeleteServlet" method="post">
-        <input type="hidden" name="user_id" value="${sellerR.user_id}"/> 
-        <button type="submit">Delete</button>
+        <input type="hidden" name="user_id" value="${sellerR.user_id}"/>
+        <button type="submit" class="delete-button">Delete</button>
     </form>
-
 </td>
 
 </tr>
 </c:forEach>
 </table>
+    <script src="JS/SellerDashBoard.js"></script>       
 
 </body>
 </html>

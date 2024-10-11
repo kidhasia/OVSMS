@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Seller Information</title>
+        <link rel="stylesheet" href="CSS/UpdateSeller.css">
+
 </head>
 <body>
 <%
@@ -46,6 +48,8 @@
         
         <button type="submit">Submit</button>
     </form>
+    <script src="JS/UpdateSeller.js"></script>       
+
 </div>
 </body>
 </html>
