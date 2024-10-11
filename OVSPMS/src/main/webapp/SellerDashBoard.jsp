@@ -29,9 +29,14 @@ pageEncoding="UTF-8"%>
 <td>${sellerR.user_password}</td>
 
 <td>
-	<a href="UpdateSeller.jsp?user_id=${sellerR.user_id}&user_name=${sellerR.user_name}&user_email=${sellerR.user_email}&user_conNum=${sellerR.user_conNum}&user_address=${sellerR.user_address}&user_password=${sellerR.user_password}">
-	<button>Update</button>
-	</a>
+    <a href="UpdateSeller.jsp?user_id=${sellerR.user_id}&user_name=${sellerR.user_name}&user_email=${sellerR.user_email}&user_conNum=${sellerR.user_conNum}&user_address=${sellerR.user_address}&user_password=${sellerR.user_password}">
+        <button>Update</button>
+    </a>
+
+    <form action="DeleteServlet" method="post">
+        <input type="hidden" name="user_id" value="${sellerR.user_id}"/> 
+        <button type="submit">Delete</button>
+    </form>
 
 </td>
 
