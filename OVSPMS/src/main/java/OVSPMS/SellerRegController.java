@@ -3,6 +3,7 @@ package OVSPMS;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -153,6 +154,46 @@ public class SellerRegController {
 
 	    return isSuccess;
 	}
+	
+	// Delete data
+	public static boolean deleteData(int user_id) {
+	    boolean isSuccess = false; 
+	    Connection con = null; // Declare Connection variable
+	    PreparedStatement pst = null; // Declare PreparedStatement variable
+
+	    try {
+	        // DB connection 
+	        con = DBConnection.getConnection();
+
+	        // SQL query
+	        pst = con.prepareStatement("DELETE FROM userregistration WHERE user_id = ?");
+
+	        // Set the user_id parameter
+	        pst.setInt(1, user_id);
+
+	        // Execute the update
+	        int rowsAffected = pst.executeUpdate();
+
+	        // Check if rows were affected
+	        isSuccess = (rowsAffected > 0); // Deletion successful if rowsAffected is greater than 0
+
+	    } catch (Exception e) {
+	        e.printStackTrace(); // Print stack trace in case of an exception
+	        isSuccess = false; // Set success to false in case of an exception
+	    } finally {
+	        // Close resources
+	        try {
+	            if (pst != null) pst.close(); // Close PreparedStatement
+	            if (con != null) con.close(); // Close Connection
+	        } catch (SQLException e) {
+	            e.printStackTrace(); // Handle exception while closing resources
+	        }
+	    }
+
+	    return isSuccess; // Return the result of the operation
+	}
+
+
 
 
 	public static boolean isSuccess() {
