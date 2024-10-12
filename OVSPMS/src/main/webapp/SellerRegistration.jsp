@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Registration</title>
         <link rel="stylesheet" href="CSS/SellerRegistration.css">
+            <jsp:include page="Header.jsp" />
+        
     
     
 </head>
@@ -47,6 +49,7 @@
     </div>
     <script src="JS/SellerRegistration.js"></script>
         <script src="JS/SellerRegistration.js"></script>       
+                <jsp:include page="Footer.jsp" />
     
 </body>
 </html>

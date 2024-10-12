@@ -6,6 +6,8 @@ pageEncoding="UTF-8"%>
 <head>
 <meta charset="UTF-8">
 <title>Seller Dash Board</title>
+    <jsp:include page="Header.jsp" />
+
     <link rel="stylesheet" href="CSS/SellerDashBoard.css">
 
 </head>
@@ -45,6 +47,7 @@ pageEncoding="UTF-8"%>
 </c:forEach>
 </table>
     <script src="JS/SellerDashBoard.js"></script>       
+    <jsp:include page="Footer.jsp" />
 
 </body>
 </html>

@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>Update Seller Information</title>
         <link rel="stylesheet" href="CSS/UpdateSeller.css">
+            <jsp:include page="Header.jsp" />
+        
 
 </head>
 <body>

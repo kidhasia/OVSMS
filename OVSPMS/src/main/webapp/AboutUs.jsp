@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="CSS/AboutUs.css"> <!-- Link to your CSS file -->
 </head>
 <body>
+<jsp:include page="Header.jsp" />
+
     <div class="container">
         <header>
             <h1>About Us</h1>
@@ -31,5 +33,6 @@
             </div>
         </section>
     </div>
+    <jsp:include page="Footer.jsp" />
 </body>
 </html>
