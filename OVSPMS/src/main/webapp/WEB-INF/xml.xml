@@ -38,9 +38,19 @@
 		<servlet-name>DeleteServlet</servlet-name>
 		<servlet-class>OVSPMS.DeleteServlet</servlet-class>
 	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>DeleteServlet</servlet-name>
 		<url-pattern>/DeleteServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FeedBackInsertServlet</servlet-name>
+		<servlet-class>OVSPMS.FeedBackInsertServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FeedBackInsertServlet</servlet-name>
+		<url-pattern>/FeedBackInsertServlet</url-pattern>
 	</servlet-mapping>
 
 </web-app>
