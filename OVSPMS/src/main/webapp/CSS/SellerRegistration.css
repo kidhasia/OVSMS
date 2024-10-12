@@ -15,14 +15,14 @@
             line-height: 1.6;
         }
 
-        .registration-container {
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: var(--secondary-color);
-            padding: 40px; /* Increased padding here */
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .registration-container {
+    max-width: 500px; /* or your desired width */
+    margin: 0 auto;
+    background-color: var(--secondary-color);
+    padding: 40px; 
+    border-radius: 20px; /* Increased border-radius for rounder corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
         h2 {
             color: var(--primary-color);
