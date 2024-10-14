@@ -27,7 +27,7 @@ The Online Vehicle Spare Parts Management System is a web-based application desi
 - **Backend**: Java
 - **Database**: MySQL
 - **Version Control**: Git
-- **Development Tools**: Eclipse IDE
+- **Development Tools**: Eclipse 24 IDE
 
 ## Installation
 To set up the project locally, follow these steps:
