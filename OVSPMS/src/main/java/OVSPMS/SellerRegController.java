@@ -18,63 +18,43 @@ public class SellerRegController {
 	
 	//Insert data function
 	public static boolean insertdata(String user_name, String user_email, int user_conNum, String user_address, String user_password) {
-		boolean isSuccess = false;
-		try {
-			
-			con=DBConnection.getConnection();
-			stmt=con.createStatement();
-			
-			//SQL Query
-			String sqlQ = "INSERT INTO `userregistration` (user_name, user_email, user_conNum, user_address, user_password) VALUES ('" + user_name + "', '" + user_email + "', " + user_conNum + ", '" + user_address + "', '" + user_password + "')";
+	    boolean isSuccess = false;
+	    int userId = 0;
+	    try {
+	        con = DBConnection.getConnection();
+	        stmt = con.createStatement();
 
-			int rs = stmt.executeUpdate(sqlQ);
-			if(rs>0) {
-				isSuccess = true;
-			}
-			else {
-				isSuccess = false;
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return isSuccess;
-		
+	        // SQL Query to insert data
+	        String sqlQ = "INSERT INTO `userregistration` (user_name, user_email, user_conNum, user_address, user_password) VALUES (?, ?, ?, ?, ?)";
+	        PreparedStatement pstmt = con.prepareStatement(sqlQ, Statement.RETURN_GENERATED_KEYS);
+	        pstmt.setString(1, user_name);
+	        pstmt.setString(2, user_email);
+	        pstmt.setInt(3, user_conNum);
+	        pstmt.setString(4, user_address);
+	        pstmt.setString(5, user_password);
+
+	        int rowsAffected = pstmt.executeUpdate();
+	        ResultSet generatedKeys = pstmt.getGeneratedKeys();
+
+	        if (rowsAffected > 0 && generatedKeys.next()) {
+	            isSuccess = true;
+	            userId = generatedKeys.getInt(1); // Fetching the inserted user's ID
+	        }
+
+	        // Set session attribute or forward the user ID for use in dashboard display
+	        if (isSuccess) {
+	            // You can set the user_id in session for future operations
+	            // session.setAttribute("user_id", userId);
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return isSuccess;
 	}
+		
+		
 	
-	public static List<SellerReg> getById (int Id){
-		
-		int converedID = Id;
-		
-		ArrayList <SellerReg> seller = new ArrayList<>();
-		
-		try {
-			con = DBConnection.getConnection();
-			stmt = con.createStatement();
-			
-			String sqlQ = "SELECT * FROM userregistration WHERE user_id  " + converedID + ";";
-			
-			rs = stmt.executeQuery(sqlQ);
-			
-			while(rs.next()) {
-				int user_id =rs.getInt(1);
-				String user_name = rs.getString(2);
-				String user_email = rs.getString(3);
-				int user_conNum = rs.getInt(4);
-				String user_address = rs.getString(5);
-				String user_password = rs.getString(6);
-				
-				SellerReg seller2 =  new SellerReg(user_id, user_name,user_email,user_conNum,user_address,user_password);
-				
-				seller.add(seller2);
-			}
-			}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return seller;
-		
-		
-	}
 	
 	//Get Data
 	public static List<SellerReg> getAllSellerReg(){
@@ -84,7 +64,7 @@ public class SellerRegController {
 			con = DBConnection.getConnection();
 			stmt = con.createStatement();
 			
-			String sqlQ = "SELECT * FROM userregistration ";
+			String sqlQ = " SELECT * FROM userregistration ORDER BY user_id DESC LIMIT 1";
 			
 			rs = stmt.executeQuery(sqlQ);
 			
@@ -120,7 +100,7 @@ public class SellerRegController {
 	        // Get database connection
 	        con = DBConnection.getConnection();
 	        
-	        // Query with placeholders
+	        // Query 
 	        String sqlQ = "UPDATE userregistration SET user_name = ?, user_email = ?, user_conNum = ?, user_address = ?, user_password = ? WHERE user_id = ?";
 	        
 	        // Use PreparedStatement to prevent SQL injection
