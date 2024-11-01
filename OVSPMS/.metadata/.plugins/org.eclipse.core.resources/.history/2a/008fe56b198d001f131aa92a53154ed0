@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: navy;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column; /* Layout in column to place header, content, footer */
+}
+
+header {
+    flex-shrink: 0; /* Ensure header stays at the top */
+}
+
+footer {
+    flex-shrink: 0; /* Ensure footer stays at the bottom */
+}
+
+main {
+    flex-grow: 1; /* Main content grows to fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding to prevent overlap with header and footer */
+}
+
+.feedback-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 360px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+h1 {
+    text-align: center;
+    color: navy;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: black;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: navy;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input[type="submit"] {
+    background-color: navy;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
