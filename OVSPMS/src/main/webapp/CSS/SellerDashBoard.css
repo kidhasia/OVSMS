@@ -1,12 +1,15 @@
 @charset "UTF-8";
-/* SellerDashboard.css */
+/* SellerProfile.css */
 
 :root {
     --primary-color: #1c2b4b;
     --secondary-color: #ffffff;
     --accent-color: #007aff;
     --text-color: #333333;
-    --background-color: #f0f2f5;
+    --background-color: #f7f9fc;
+    --hover-color: #f0f4ff;
+    --delete-color: #dc3545;
+    --delete-hover-color: #c82333;
 }
 
 body {
@@ -20,47 +23,54 @@ body {
 
 h2 {
     color: var(--primary-color);
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 30px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 table {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     border-collapse: collapse;
     background-color: var(--secondary-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
 th, td {
-    padding: 12px 15px;
+    padding: 15px;
     text-align: left;
 }
 
 th {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    font-weight: 600;
+    font-weight: bold;
     text-transform: uppercase;
+    font-size: 15px;
+}
+
+td {
     font-size: 14px;
+    color: var(--text-color);
 }
 
 tr:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: var(--hover-color);
 }
 
 tr:hover {
-    background-color: #e9ecef;
+    background-color: var(--hover-color);
+    transition: background-color 0.3s ease;
 }
 
 button {
     background-color: var(--accent-color);
     color: var(--secondary-color);
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 14px;
@@ -72,7 +82,7 @@ button:hover {
 }
 
 form {
-    display: inline;
+    display: inline-block;
 }
 
 a {
@@ -84,13 +94,32 @@ a {
 }
 
 .update-button {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .delete-button {
-    background-color: #dc3545;
+    background-color: var(--delete-color);
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: var(--delete-hover-color);
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
 }

@@ -1,0 +1,106 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Parts Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Vehicle Parts Catalog</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Part ID</th>
+                <th>Part Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>Engine Oil</td>
+                <td>Lubricants</td>
+                <td>$25.99</td>
+                <td><button class="btn">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Brake Pad</td>
+                <td>Brakes</td>
+                <td>$45.00</td>
+                <td><button class="btn">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Air Filter</td>
+                <td>Filters</td>
+                <td>$15.50</td>
+                <td><button class="btn">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>Spark Plug</td>
+                <td>Electrical</td>
+                <td>$8.75</td>
+                <td><button class="btn">Add to Cart</button></td>
+            </tr>
+            <!-- Add more parts as needed -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

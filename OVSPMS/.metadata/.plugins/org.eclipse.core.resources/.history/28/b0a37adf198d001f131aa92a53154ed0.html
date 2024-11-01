@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   <jsp:include page="Header.jsp" />
+
+    <br>
+    <div class="slider">
+        <div class="slides">
+            <img src="images\vehicle-spare-parts-1-1.jpg" class="pictures">
+            <img src="images\disc-brake-and-pads-on-a-vehicle.jpg" class="pictures">
+            <img src="images\219-DGARAGE-KiaForteGTPart3-000-lead.jpg" class="pictures">
+            <img src="images\Tips-to-Choose-Genuine-Spare-Parts-from-Online-or-Physical-Store.jpg" class="pictures">
+        </div>
+        <h1 class="text">Auto parts paradise Sri Lanka</h1>
+    </div>
+
+    <br><br>
+
+    <div class="container">
+        <!-- Engine Parts Box -->
+        <div class="box">
+            <div class="box-content">
+                <img src="images/ve-sinh-khoang-dong-co.jpg" alt="Engine Parts">
+                <div class="box-text">
+                    <h2>ENGINE PARTS</h2>
+                    <a href="#" class="more-details">More Details</a>
+                </div>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Cylinder Block</li>
+                    <li>Crankshaft</li>
+                    <li>Camshaft</li>
+                    <li>Pistons</li>
+                    <li>Connecting Rods</li>
+                    <li>Oil Pump</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service Parts Box -->
+        <div class="box">
+            <div class="box-content">
+                <img src="images/R.jpeg" alt="Service Parts">
+                <div class="box-text">
+                    <h2>SERVICE PARTS</h2>
+                    <a href="#" class="more-details">More Details</a>
+                </div>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Air Filters</li>
+                    <li>Oil Filters</li>
+                    <li>Brake Pads & Rotors</li>
+                    <li>Fuel Filters</li>
+                    <li>Spark Plugs</li>
+                    <li>Timing Belts/Chains</li>
+                    <li>Batteries</li>
+                    <li>Coolant</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Body Parts Box -->
+        <div class="box">
+            <div class="box-content">
+                <img src="images/feature-image-6.jpg" alt="Body Parts">
+                <div class="box-text">
+                    <h2>BODY PARTS</h2>
+                    <a href="#" class="more-details">More Details</a>
+                </div>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Bumpers</li>
+                    <li>Fenders</li>
+                    <li>Hoods</li>
+                    <li>Mirrors</li>
+                    <li>Grilles</li>
+                    <li>Headlights & Taillights</li>
+                    <li>Doors & Door Handles</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lubricants Box -->
+        <div class="box">
+            <div class="box-content">
+                <img src="images/lubricants2.jpg" alt="Lubricants">
+                <div class="box-text">
+                    <h2>LUBRICANTS</h2>
+                    <a href="#" class="more-details">More Details</a>
+                </div>
+            </div>
+            <div class="details">
+                <ul>
+                    <li>Gear Oil</li>
+                    <li>Coolant/Antifreeze</li>
+                    <li>Grease</li>
+                    <li>Power Steering Fluid</li>
+                    <li>Brake Fluid</li>
+                    <li>Transmission Fluid</li>
+                    <li>Engine Oil</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --primary-color: #1c2b4b;
+            --secondary-color: #ffffff;
+            --accent-color: #007aff;
+            --text-color: #ffffff;
+            --background-color: #f0f2f5;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .navigationbar {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            padding: 0;
+            overflow: hidden;
+            background-color: var(--primary-color);
+        }
+
+        .navigation a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 24px 24px 24px 65px;
+            display: block;
+        }
+
+        .navigation a:hover:not(.active) {
+            background-color: var(--accent-color);
+        }
+
+  .slider{
+   
+    top:50%;
+    left:50%;
+    width :100%;
+    height: 540px;
+    
+   
+    border-radius: 10px;
+    overflow: hidden;
+    
+    
+  }
+  .slides{
+    transform: translate(-50%,-50%);
+    width :100%;
+    height: 540px;
+    display: flex;
+    animation: slide 30s infinite;
+    
+   
+  }
+  @keyframes slide{
+    0%{
+      transform: translateX(0);
+    }
+    12.5%{
+      transform: translateX(0);
+    }
+    25%{
+      transform: translateX(-100%);
+    }
+    37.5%{
+      transform: translateX(-100%);
+    }
+    50%{
+      transform: translateX(-200%);
+    }
+    62.5%{
+      transform: translateX(-200%);
+    }
+    75%{
+      transform: translateX(-300%);
+    }
+    87.5%{
+      transform: translateX(-300%);
+    }
+   
+    100%{
+      transform: translateX(-400%);
+    }
+    
+  }
+  .slider::after{
+    content: "";
+    position: absolute;
+    top:110px;
+    left: 0;
+    width: 100%;
+    height: 540px;
+    background-color: rgba(0,0,0,0.65);
+   
+  }
+  .slides img{
+    flex:1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+  }
+  .text{
+    
+    color: rgb(255, 255, 255);
+    top: 50%;
+    z-index: 1;
+  }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            width: 100%;
+            max-width: 700px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 250px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .box h2 {
+            color: var(--accent-color);
+        }
+
+        .more-details {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .more-details:hover {
+            background-color: #0056b3;
+        }
+
+        .details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .details

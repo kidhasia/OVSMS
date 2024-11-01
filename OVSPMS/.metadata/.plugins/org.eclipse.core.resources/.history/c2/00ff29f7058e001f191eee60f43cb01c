@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background for contrast */
+    color: #000000; /* Black text color for better readability */
+}
+
+/* Profile Container */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the profile section */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+/* Profile Details */
+.profile-details p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #000000; /* Black text for details */
+}
+
+.profile-details p strong {
+    color: #1d3557; /* Navy blue color for labels */
+}
+
+/* Action Buttons */
+.profile-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Update Button */
+.update-button {
+    background-color: #1d3557; /* Navy blue background */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #457b9d; /* Lighter navy blue on hover */
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #e63946; /* Red color for delete button */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #d62839; /* Darker red on hover */
+}
+
+/* Form Styling */
+.delete-form {
+    display: inline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-details p {
+        font-size: 16px;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-actions .update-button,
+.profile-actions .delete-button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.profile-actions .delete-button:last-child {
+    margin-bottom: 0;
+}
+
+}

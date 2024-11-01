@@ -1,0 +1,109 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(166, 178, 179);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color:#75a3a3;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+             box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            
+        }
+        td {
+            padding: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #3c744d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+          input[type="button"] {
+            background-color:#75a3a3;
+            color:#3d4141;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            margin-top: 10px;
+            border:none;
+        }
+        input[type="button"]:hover {
+            color: black;
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(31, 75, 37);
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <!-- Display error message if any -->
+        <c:if test="${not empty errorMessage}">
+            <div class="error-message">${errorMessage}</div>
+        </c:if>
+
+        <form action="login_servlet" method="post">
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username" placeholder="Enter your username" required/></td>
+                </tr>
+                <tr>
+                    <td>Password </td>
+                    <td><input type="password" name="password" placeholder="Enter your password" required/></td>
+                </tr>
+                <tr>
+                       <td colspan="2"><input type="submit" value="Login"/></td>
+                </tr>
+                <tr>
+                <td colspan="2"><a href="admin_registerartion.jsp"><input type="button" value="sign up"/></a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

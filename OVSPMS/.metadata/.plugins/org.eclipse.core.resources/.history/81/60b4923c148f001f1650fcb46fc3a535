@@ -1,0 +1,49 @@
+package admin;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/singleservlet")
+public class singleservlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+       
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.setCharacterEncoding("UTF-8");
+
+     
+        String product_name = request.getParameter("product_name");
+        String price = request.getParameter("price");
+        String quantity = request.getParameter("quantity");
+       
+        
+        boolean isSuccess = false; 
+       
+        try {
+            isSuccess = CartControl.cartcontol(product_name, price, quantity);
+        } catch (Exception e) {
+            e.printStackTrace(); 
+            request.setAttribute("cart", "error");
+        }
+
+        RequestDispatcher dispatcher;
+        if (isSuccess) {
+            request.setAttribute("cart", "success");
+		    String alertMessage="data update successful";
+		    response.getWriter().println("<script> alert('"+alertMessage+"');");
+		    response.sendRedirect("homepage.jsp");
+        } else {
+            request.setAttribute("cart", "failed");
+        }
+        
+        dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request, response);
+    }
+}

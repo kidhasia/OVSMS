@@ -1,0 +1,55 @@
+package admin;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+
+
+public class CartControl 
+{
+	private static boolean isSuccesss;
+	private static Connection con = null;
+	private static Statement stmt = null;
+	private static ResultSet rs = null;
+	
+	 public static boolean cartcontol(String product_name, String price, String quantity) {
+	        boolean isSuccess = false; // Fixed the variable name
+	       
+	        PreparedStatement pstmt = null;
+	        
+	        try {
+	            // Get database connection
+	            con = DBconnector.getConnection();
+	            
+	            // SQL Query using PreparedStatement
+	            String sqlQ = "INSERT INTO cart (product_name, price, quantity) VALUES (?, ?, ?)";
+	            pstmt = con.prepareStatement(sqlQ);
+	            
+	            pstmt.setString(1, product_name);
+	            pstmt.setString(2, price);
+	            pstmt.setString(3, quantity);
+	          
+	            
+	            int rowsAffected = pstmt.executeUpdate();
+	            
+	            if (rowsAffected > 0) {
+	                isSuccess = true; 
+	            }
+	            
+	        } catch (Exception e) {
+	            e.printStackTrace(); 
+	        } finally {
+	      
+	            try {
+	                if (pstmt != null) pstmt.close();
+	                if (con != null) con.close();
+	            } catch (Exception e) {
+	                e.printStackTrace(); 
+	            }
+	        }
+	        
+	        return isSuccess;
+	    }
+}

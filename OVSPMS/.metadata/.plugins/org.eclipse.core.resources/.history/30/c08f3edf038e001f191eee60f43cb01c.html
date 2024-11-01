@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Profile</title>
+    <jsp:include page="Header.jsp" />
+    
+    <link rel="stylesheet" href="/SellerRegistration.css">
+</head>
+<body>
+    <h2>Seller Profile</h2>
+
+    <div class="profile-container">
+        <div class="profile-details">
+            <p><strong>User ID:</strong> ${sellerR.user_id}</p>
+            <p><strong>Username:</strong> ${sellerR.user_name}</p>
+            <p><strong>E-mail:</strong> ${sellerR.user_email}</p>
+            <p><strong>Contact Number:</strong> ${sellerR.user_conNum}</p>
+            <p><strong>Address:</strong> ${sellerR.user_address}</p>
+            <p><strong>Password:</strong> ${sellerR.user_password}</p>
+        </div>
+
+        <div class="profile-actions">
+            <a href="UpdateSeller.jsp?user_id=${sellerR.user_id}&user_name=${sellerR.user_name}&user_email=${sellerR.user_email}&user_conNum=${sellerR.user_conNum}&user_address=${sellerR.user_address}&user_password=${sellerR.user_password}">
+                <button class="update-button">Update Profile</button>
+            </a>
+
+            <form action="DeleteServlet" method="post" class="delete-form">
+                <input type="hidden" name="user_id" value="${sellerR.user_id}"/>
+                <button type="submit" class="delete-button">Delete Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="JS/SellerProfile.js"></script>       
+    <jsp:include page="Footer.jsp" />
+</body>
+</html>
